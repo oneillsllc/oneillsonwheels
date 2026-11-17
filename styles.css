@@ -126,10 +126,11 @@ h2 {
   background: linear-gradient(180deg, var(--green-500), var(--green-700)); border: 1px solid var(--gold);
 }
 
-.stops { list-style: none; margin: 1.2rem auto 0; padding: 0; max-width: 32rem; }
-.stops li { display: flex; flex-direction: column; padding: .7rem 0; border-bottom: 1px solid rgba(210,172,92,.3); }
-.stops strong { font-family: "Cinzel", Georgia, serif; font-size: 1rem; letter-spacing: .08em; color: var(--gold); }
-.stops-empty { font-size: 1.3rem; margin: 1.1rem auto 0; }
+.market-details { list-style: none; margin: 1.2rem auto 0; padding: 0; max-width: 32rem; }
+.market-details li { display: flex; flex-direction: column; padding: .6rem 0; border-bottom: 1px solid rgba(210,172,92,.3); }
+.market-details strong { font-family: "Cinzel", Georgia, serif; font-size: .9rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.market-note { font-size: 1.3rem; max-width: 34ch; margin: 1.1rem auto 0; }
+.hero-sub { display: block; margin-top: .5rem; font-family: "Cinzel", Georgia, serif; font-style: normal; font-weight: 600; font-size: .7em; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); }
 
 .owner { font-family: var(--heading); font-size: 1.6rem; color: var(--gold-light); margin: 0 0 .8rem; }
 .owner small { display: block; font-family: "Cinzel", Georgia, serif; font-size: .9rem; letter-spacing: .3em; color: var(--gold); margin-top: .3rem; }

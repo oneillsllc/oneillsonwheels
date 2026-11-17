@@ -27,8 +27,15 @@ const siteContent = {
     "Coffee",
   ],
 
-  // This week's stops. While this list is empty the site says
-  // "Check Facebook for this week's stops." To show stops, add lines like:
-  //   { day: "Saturday, 8 AM – 12 PM", place: "Downtown market, Lake Charles" },
-  stops: [],
+  // Your farmers market details. Every Tuesday is already shown on the site.
+  // While these are empty, nothing extra appears. Fill in any of them and
+  // they show up under "Find Us at the Market". Example:
+  //   name:  "Your Market Name",
+  //   when:  "Tuesdays, 3 PM – 6 PM",
+  //   where: "Street or park, Lake Charles",
+  market: {
+    name: "",
+    when: "",
+    where: "",
+  },
 };

@@ -1,5 +1,5 @@
 /* Site behavior. You don't need to edit this file.
-   Weekly content (menu list, stops, Facebook link) lives in menu.js. */
+   Weekly content (menu list, market details, Facebook link) lives in menu.js. */
 (function () {
   "use strict";
   var c = typeof siteContent === "object" ? siteContent : {};
@@ -18,18 +18,19 @@
     var wl = document.getElementById("week-label");
     if (wl && c.weekLabel) { wl.hidden = false; text(wl, c.weekLabel); }
 
-    // Weekly stops
-    var stops = document.getElementById("stops");
-    var empty = document.getElementById("stops-empty");
-    if (stops && Array.isArray(c.stops) && c.stops.length) {
-      c.stops.forEach(function (s) {
+    // Farmers market details (only shown once filled in)
+    var md = document.getElementById("market-details");
+    var m = c.market || {};
+    if (md) {
+      [["Market", m.name], ["When", m.when], ["Where", m.where]].forEach(function (row) {
+        var v = (row[1] || "").trim();
+        if (!v) return;
         var li = document.createElement("li");
-        li.appendChild(text(document.createElement("strong"), s.day || ""));
-        li.appendChild(text(document.createElement("span"), s.place || ""));
-        stops.appendChild(li);
+        li.appendChild(text(document.createElement("strong"), row[0]));
+        li.appendChild(text(document.createElement("span"), v));
+        md.appendChild(li);
       });
-      stops.hidden = false;
-      if (empty) empty.hidden = true;
+      if (md.children.length) md.hidden = false;
     }
 
     // Facebook: only link it once a real URL is set in menu.js

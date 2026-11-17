@@ -34,16 +34,16 @@ weekLabel: "Week of November 23",
 ```
 Set it back to `""` to hide it.
 
-### Post this week's stops
-While `stops` is empty, the site says "Check Facebook for this week's stops, or give us a call." To list stops:
+### Add your farmers market details
+The site already says you're at the farmers market every Tuesday. To add the market's name, hours, or location, fill in any of these (leave a line as `""` to hide it):
 
 ```js
-stops: [
-  { day: "Saturday, 8 AM – 12 PM", place: "Downtown market, Lake Charles" },
-  { day: "Sunday, 11 AM – 2 PM", place: "Another stop, Lake Charles" },
-],
+market: {
+  name: "Your Market Name",
+  when: "Tuesdays, 3 PM – 6 PM",
+  where: "Street or park, Lake Charles",
+},
 ```
-Set it back to `[]` to go back to the Facebook message.
 
 ## Phone, email, and other text
 Phone (337) 515-6767 and oneillsllc@gmail.com are in `index.html` (search for `tel:` and `mailto:`). The street address is intentionally not published.
