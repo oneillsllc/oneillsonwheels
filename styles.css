@@ -49,7 +49,7 @@ a:hover, a:focus-visible { color: #fff4cf; }
 }
 .nav-inner { max-width: 1100px; margin: 0 auto; padding: .45rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--gold-light); }
-.brand img { width: 40px; height: auto; filter: drop-shadow(0 2px 3px rgba(0,0,0,.5)); }
+.brand img { width: 54px; height: auto; filter: drop-shadow(0 2px 3px rgba(0,0,0,.5)); }
 .brand span { font-family: var(--heading); font-size: 1.15rem; line-height: 1; letter-spacing: .02em; }
 .brand small { display: block; font-size: .62em; letter-spacing: .14em; color: var(--gold); margin-top: .2rem; }
 .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.6rem; }
@@ -62,7 +62,7 @@ a:hover, a:focus-visible { color: #fff4cf; }
   padding: 3rem 1.25rem 3.5rem;
   background: radial-gradient(ellipse at 50% 35%, rgba(60,140,80,.28), transparent 60%);
 }
-.hero-logo { width: min(340px, 72vw); margin: 0 auto; filter: drop-shadow(0 14px 22px rgba(0,0,0,.6)) drop-shadow(0 0 30px rgba(60,170,90,.18)); }
+.hero-logo { width: min(640px, 94vw); max-width: none; margin: 0 auto; filter: drop-shadow(0 14px 22px rgba(0,0,0,.6)) drop-shadow(0 0 30px rgba(60,170,90,.18)); }
 .hero-banner { width: min(460px, 88vw); margin: 1.4rem auto 0; filter: drop-shadow(0 6px 8px rgba(0,0,0,.5)); }
 .hero-lede { font-style: italic; font-weight: 600; font-size: 1.45rem; max-width: 30ch; margin: 1.2rem auto 1.6rem; }
 
@@ -148,11 +148,11 @@ h2 {
 @media (max-width: 640px) {
   body { font-size: 1.15rem; }
   .nav-inner { padding: .4rem .8rem; }
-  .brand img { width: 32px; }
+  .brand img { width: 44px; }
   .brand span { display: none; }
   .nav-menu { gap: 1.1rem; }
   .nav-menu a { font-size: .8rem; letter-spacing: .08em; }
-  .hero { padding: 2rem 1rem 2.4rem; }
+  .hero { padding: 1.4rem .5rem 2.4rem; }
   .hero-lede { font-size: 1.3rem; }
   .panel-section { padding: .8rem .6rem 1.2rem; }
   .panel { border-width: 36px; padding: .25rem .3rem .6rem; }
