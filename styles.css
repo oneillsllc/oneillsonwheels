@@ -108,6 +108,7 @@ h2 {
 .quest-list {
   list-style: none; margin: 0 auto; padding: 0;
   display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); justify-content: center; column-gap: 3.2rem; row-gap: .25rem;
+  grid-auto-flow: column; grid-template-rows: repeat(var(--rows, 4), auto); /* fill left column first (kitchen), then right (bakery) */
   text-align: left;
 }
 .quest-list li {
@@ -167,7 +168,7 @@ h2 {
   .btn { padding: .75rem 1.1rem; font-size: .85rem; }
 }
 @media (max-width: 360px) {
-  .quest-list { grid-template-columns: minmax(0, max-content); }
+  .quest-list { grid-template-columns: minmax(0, max-content); grid-auto-flow: row; grid-template-rows: none; }
   .nav-menu { gap: .7rem; }
   .nav-menu a { font-size: .72rem; letter-spacing: .04em; }
 }

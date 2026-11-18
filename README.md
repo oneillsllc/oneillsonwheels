@@ -22,8 +22,8 @@ Edit the `quests` list. Add, remove, or reorder lines. Keep the quotes and the c
 
 ```js
 quests: [
-  "Soups",
-  "Quiche",
+  "Sandwiches",
+  "Appetizers",
   "Crawfish Étouffée",
 ],
 ```

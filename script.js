@@ -12,6 +12,7 @@
     if (list && Array.isArray(c.quests) && c.quests.length) {
       list.innerHTML = "";
       c.quests.forEach(function (q) { list.appendChild(text(document.createElement("li"), q)); });
+      list.style.setProperty("--rows", Math.ceil(c.quests.length / 2)); // two even columns
     }
 
     // Week label

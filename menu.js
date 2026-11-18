@@ -18,12 +18,12 @@ const siteContent = {
 
   // What you make. Add, remove, or reorder lines freely.
   quests: [
-    "Soups",
-    "Quiche",
     "Sandwiches",
+    "Soups",
+    "Appetizers",
     "Sides",
-    "Desserts",
     "Cheesecake",
+    "Desserts",
     "Birthday Cakes",
     "Coffee",
   ],
