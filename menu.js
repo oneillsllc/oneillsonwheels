@@ -23,6 +23,7 @@ const siteContent = {
     "Sandwiches",
     "Sides",
     "Desserts",
+    "Cheesecake",
     "Birthday Cakes",
     "Coffee",
   ],
