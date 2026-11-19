@@ -48,6 +48,23 @@
       document.querySelectorAll(".fb-item").forEach(function (li) { li.hidden = false; });
     }
 
+    // Gallery lightbox (falls back to opening the photo if <dialog> is unsupported)
+    var lb = document.getElementById("lightbox");
+    if (lb && typeof lb.showModal === "function") {
+      var lbImg = lb.querySelector("img"), lbCap = lb.querySelector("figcaption");
+      document.querySelectorAll(".gallery-item a").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          lbImg.src = a.getAttribute("data-full") || a.href;
+          lbImg.alt = a.getAttribute("data-caption") || "";
+          lbCap.textContent = a.getAttribute("data-caption") || "";
+          lb.showModal();
+        });
+      });
+      lb.querySelector(".lightbox-close").addEventListener("click", function () { lb.close(); });
+      lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
+    }
+
     var y = document.getElementById("year");
     if (y) y.textContent = String(new Date().getFullYear());
   });

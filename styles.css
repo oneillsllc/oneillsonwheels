@@ -140,6 +140,20 @@ h2 {
 .contact-list a:hover { color: var(--gold-light); }
 .contact-list li[hidden] { display: none; }
 
+/* ---------- gallery ---------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(185px, 100%), 1fr)); gap: 1rem; margin: 1.4rem auto 0; max-width: 64rem; text-align: center; }
+.gallery-item { margin: 0; }
+.gallery-item a { display: block; border: 2px solid var(--gold-dark); border-radius: 4px; overflow: hidden; background: var(--green-900); box-shadow: 0 6px 14px rgba(0,0,0,.55), inset 0 0 0 1px rgba(242,214,140,.25); }
+.gallery-item img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; transition: transform .35s ease; }
+.gallery-item a:hover img, .gallery-item a:focus-visible img { transform: scale(1.04); }
+.gallery-item figcaption { font-style: italic; font-weight: 600; font-size: 1.12rem; line-height: 1.3; margin: .5rem .2rem 0; color: var(--cream); }
+.lightbox { border: 2px solid var(--gold); border-radius: 6px; padding: .8rem; max-width: min(94vw, 1100px); background: var(--green-900); color: var(--cream); box-shadow: 0 20px 60px rgba(0,0,0,.8); }
+.lightbox::backdrop { background: rgba(5,12,8,.88); }
+.lightbox figure { margin: 0; }
+.lightbox img { display: block; max-width: 100%; max-height: 78vh; margin: 0 auto; border-radius: 3px; }
+.lightbox figcaption { font-style: italic; font-weight: 600; font-size: 1.25rem; text-align: center; margin-top: .6rem; }
+.lightbox-close { position: absolute; top: .2rem; right: .45rem; background: none; border: 0; color: var(--gold-light); font-size: 2.2rem; line-height: 1; cursor: pointer; }
+
 /* ---------- footer ---------- */
 .site-footer { text-align: center; padding: 1.5rem 1rem 2.5rem; border-top: 2px solid var(--gold-dark); background: linear-gradient(180deg, var(--green-800), var(--green-900)); }
 .footer-banner { width: min(360px, 80vw); margin: 0 auto .8rem; }
@@ -151,11 +165,13 @@ h2 {
   .nav-inner { padding: .4rem .8rem; }
   .brand img { width: 44px; }
   .brand span { display: none; }
-  .nav-menu { gap: 1.1rem; }
-  .nav-menu a { font-size: .8rem; letter-spacing: .08em; }
+  .nav-menu { gap: .75rem; }
+  .nav-menu a { font-size: .74rem; letter-spacing: .05em; }
   .hero { padding: 1.4rem .5rem 2.4rem; }
   .hero-lede { font-size: 1.3rem; }
   .panel-section { padding: .8rem .6rem 1.2rem; }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+  .gallery-item figcaption { font-size: .98rem; }
   .panel { border-width: 36px; padding: .25rem .3rem .6rem; }
   .knot-divider { width: 38px; margin: .5rem auto .8rem; }
   .panel-intro { font-size: 1.25rem; }
