@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Provisions</title>
+<meta name="theme-color" content="#16261b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Provisions">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/cinzel-decorative-700.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Cinzel Decorative"; src: url("../assets/fonts/cinzel-decorative-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Cinzel"; src: url("../assets/fonts/cinzel-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("../assets/fonts/cormorant-garamond.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("../assets/fonts/cormorant-garamond-italic.woff2") format("woff2"); font-weight: 300 700; font-style: italic; font-display: swap; }
+:root {
+  --g900:#0f1c14; --g800:#16261b; --g700:#1f3a29; --g500:#2f5a3d;
+  --gd:#6f5522; --gm:#9a7735; --gold:#d2ac5c; --gl:#f0d48e;
+  --cream:#f1e7cf; --cl:#fff4cf;
+  --head:"Cinzel Decorative","Cinzel",Georgia,serif; --cin:"Cinzel",Georgia,serif;
+  --body:"Cormorant Garamond",Garamond,Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--cream);font:500 1.2rem/1.4 var(--body);font-variant-numeric:lining-nums;
+  background:var(--g900) url("../assets/img/texture.jpg") center top/900px auto;background-blend-mode:soft-light;
+  padding:env(safe-area-inset-top) 0 calc(88px + env(safe-area-inset-bottom))}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--gl);outline-offset:2px}
+.wrap{max-width:640px;margin:0 auto;padding:0 14px}
+header{display:flex;align-items:center;gap:12px;padding:14px 0 10px;border-bottom:1px solid var(--gd)}
+header img{width:44px;height:auto}
+header h1{margin:0;font:700 1.45rem/1.1 var(--head);color:var(--gl);letter-spacing:.02em}
+header .sub{font:italic 500 1rem var(--body);color:var(--gold)}
+header .spacer{flex:1}
+.lockbtn{background:none;border:1px solid var(--gd);color:var(--gold);border-radius:6px;padding:4px 10px;font:600 .72rem var(--cin);letter-spacing:.08em;text-transform:uppercase}
+.tally{display:flex;gap:16px;font:600 .78rem var(--cin);letter-spacing:.08em;text-transform:uppercase;color:var(--gold);padding:10px 2px 2px}
+.tally b{color:var(--cl);font-weight:600}
+.add{display:flex;gap:8px;margin:12px 0 4px}
+.add input{flex:1;min-width:0;background:rgba(15,28,20,.75);border:1px solid var(--gm);border-radius:8px;padding:10px 12px}
+.add input::placeholder{color:#a9a08a;font-style:italic}
+.add button{background:var(--gold);color:var(--g900);border:0;border-radius:8px;padding:0 16px;font:600 .85rem var(--cin);letter-spacing:.06em}
+section h2{display:flex;align-items:center;gap:10px;margin:22px 0 8px;font:600 .9rem var(--cin);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+section h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gm),transparent)}
+section h2 .n{color:var(--gm);font-size:.8rem}
+.item{display:flex;align-items:center;gap:10px;background:linear-gradient(180deg,rgba(31,58,41,.92),rgba(22,38,27,.92));
+  border:1px solid rgba(154,119,53,.45);border-radius:10px;padding:10px 10px 10px 14px;margin-bottom:8px}
+.item .txt{flex:1;min-width:0}
+.item .name{font-weight:600;font-size:1.22rem;color:var(--cl);overflow-wrap:anywhere}
+.item .qty{font:600 .8rem var(--cin);color:var(--gl);letter-spacing:.04em;margin-left:6px;white-space:nowrap}
+.item .src{font-style:italic;font-size:.95rem;color:#bfb497;overflow-wrap:anywhere}
+.btns{display:flex;gap:6px;flex-shrink:0}
+.btns button{border:1px solid var(--gm);background:rgba(15,28,20,.6);color:var(--gl);border-radius:8px;padding:8px 9px;min-width:72px;
+  font:600 .7rem var(--cin);letter-spacing:.06em;text-transform:uppercase}
+.btns button.on{background:var(--gold);color:var(--g900);border-color:var(--gold)}
+.item.done{opacity:.55;background:rgba(15,28,20,.7)}
+.item.done .name{text-decoration:line-through;text-decoration-color:var(--gm)}
+.empty{text-align:center;padding:48px 10px;color:var(--gold);font-style:italic}
+.empty strong{display:block;font:700 1.2rem var(--head);color:var(--gl);font-style:normal;margin-bottom:6px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:rgba(15,28,20,.96);border-top:1px solid var(--gd);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;justify-content:center}
+.bar button{flex:1;max-width:300px;border:1px solid var(--gm);background:var(--g700);color:var(--gl);border-radius:8px;padding:12px 8px;
+  font:600 .78rem var(--cin);letter-spacing:.08em;text-transform:uppercase}
+.bar button.ghost{background:transparent;color:var(--gold)}
+.note{min-height:1.4em;text-align:center;font-style:italic;color:var(--gl);font-size:1rem;padding-top:6px}
+#lock{max-width:360px;margin:12vh auto 0;padding:0 18px;text-align:center}
+#lock img{width:120px;margin:0 auto 10px;display:block}
+#lock h1{font:700 1.7rem var(--head);color:var(--gl);margin:0 0 4px}
+#lock p{color:var(--gold);font-style:italic;margin:0 0 18px}
+#lock input{width:100%;text-align:center;background:rgba(15,28,20,.8);border:1px solid var(--gm);border-radius:8px;padding:12px;font-size:1.25rem}
+#lock button{margin-top:12px;width:100%;background:var(--gold);color:var(--g900);border:0;border-radius:8px;padding:12px;font:600 .9rem var(--cin);letter-spacing:.1em;text-transform:uppercase}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div id="lock" hidden>
+  <img src="../assets/img/logo-sm.png" alt="">
+  <h1>Provisions</h1>
+  <p>Speak the passcode, adventurer.</p>
+  <form id="lockform" autocomplete="off">
+    <input id="pc" type="password" placeholder="Passcode" autocapitalize="none" autocorrect="off" spellcheck="false" aria-label="Passcode">
+    <button type="submit">Enter</button>
+  </form>
+  <div class="note" id="locknote" role="status"></div>
+</div>
+
+<div id="app" hidden>
+  <div class="wrap">
+    <header>
+      <img src="../assets/img/logo-sm.png" alt="">
+      <div><h1>Provisions</h1><div class="sub">The shopping list</div></div>
+      <div class="spacer"></div>
+      <button class="lockbtn" id="lockbtn" type="button">Lock</button>
+    </header>
+    <div class="tally"><span>To get <b id="tNeed">0</b></span><span>Grabbed <b id="tGrab">0</b></span><span>At home <b id="tHome">0</b></span></div>
+    <form class="add" id="addform" autocomplete="off">
+      <input id="addname" placeholder="Add an item, e.g. 2 lb butter" aria-label="Add an item">
+      <button type="submit">Add</button>
+    </form>
+    <div class="note" id="note" role="status"></div>
+    <div id="list"></div>
+  </div>
+  <div class="bar">
+    <button type="button" id="clearbtn">Clear checked</button>
+    <button type="button" id="freshbtn" class="ghost">Fresh list</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var URL_ = "https://eazkbwgycjeuutkbxsnh.supabase.co/rest/v1/rpc/";
+  var KEY = "sb_publishable_DHfswfiykMEKWG2-zJzCGw_5APJG4Ni";
+  var ORDER = ["Produce","Meat & Seafood","Dairy & Eggs","Dairy","Bakery","Baking","Pantry","Canned Goods","Spices","Condiments","Frozen","Drinks","Household","Other"];
+  var STORE = "provisions-passcode";
+  var pass = localStorage.getItem(STORE) || "";
+  var items = [];
+  var $ = function (id) { return document.getElementById(id); };
+
+  function rpc(fn, args) {
+    return fetch(URL_ + fn, {
+      method: "POST",
+      headers: { "apikey": KEY, "Content-Type": "application/json" },
+      body: JSON.stringify(args)
+    }).then(function (r) { return r.json(); });
+  }
+  function say(msg, el) { el = el || $("note"); el.textContent = msg || ""; if (msg) setTimeout(function () { if (el.textContent === msg) el.textContent = ""; }, 4000); }
+  function errText(e) { return e === "locked" ? "Too many wrong tries. Wait 15 minutes." : e === "bad_secret" ? "That passcode didn't work." : "Something went wrong. Try again."; }
+
+  function showLock(msg) { $("app").hidden = true; $("lock").hidden = false; $("locknote").textContent = msg || ""; $("pc").focus(); }
+  function showApp() { $("lock").hidden = true; $("app").hidden = false; }
+
+  function load(quiet) {
+    if (!pass) return showLock();
+    return rpc("grocery_list", { passcode: pass }).then(function (d) {
+      if (!d.ok) { if (d.error === "bad_secret") { localStorage.removeItem(STORE); pass = ""; } return showLock(errText(d.error)); }
+      items = d.items; showApp(); render();
+    }).catch(function () { if (!quiet) say("Can't reach the list. Check your signal."); });
+  }
+
+  function fmtQty(it) {
+    if (it.qty == null && !it.unit) return "";
+    var q = it.qty == null ? "" : String(+(+it.qty).toFixed(2));
+    return (q + " " + (it.unit || "")).trim();
+  }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function render() {
+    var groups = {}, need = 0, grab = 0, home = 0;
+    items.forEach(function (it) {
+      (groups[it.category] = groups[it.category] || []).push(it);
+      if (it.status === "needed") need++; else if (it.status === "grabbed") grab++; else home++;
+    });
+    $("tNeed").textContent = need; $("tGrab").textContent = grab; $("tHome").textContent = home;
+    var cats = Object.keys(groups).sort(function (a, b) {
+      var ia = ORDER.indexOf(a), ib = ORDER.indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
+    });
+    if (!items.length) { $("list").innerHTML = '<div class="empty"><strong>The larder is stocked.</strong>Nothing on the list yet.</div>'; return; }
+    $("list").innerHTML = cats.map(function (c) {
+      var rows = groups[c].sort(function (a, b) { return (a.status !== "needed") - (b.status !== "needed") || a.name.localeCompare(b.name); });
+      var left = rows.filter(function (r) { return r.status === "needed"; }).length;
+      return '<section><h2>' + esc(c) + ' <span class="n">' + left + '/' + rows.length + '</span></h2>' + rows.map(function (it) {
+        var q = fmtQty(it);
+        return '<div class="item' + (it.status !== "needed" ? " done" : "") + '"><div class="txt"><div class="name">' + esc(it.name) +
+          (q ? '<span class="qty">' + esc(q) + '</span>' : '') + '</div>' + (it.source ? '<div class="src">for ' + esc(it.source) + '</div>' : '') +
+          '</div><div class="btns"><button type="button" data-id="' + it.id + '" data-s="grabbed" class="' + (it.status === "grabbed" ? "on" : "") + '" aria-pressed="' + (it.status === "grabbed") + '">Grabbed</button>' +
+          '<button type="button" data-id="' + it.id + '" data-s="home" class="' + (it.status === "home" ? "on" : "") + '" aria-pressed="' + (it.status === "home") + '">At home</button></div></div>';
+      }).join("") + '</section>';
+    }).join("");
+  }
+
+  $("list").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-id]"); if (!b) return;
+    var id = +b.dataset.id, it = items.find(function (x) { return x.id === id; }); if (!it) return;
+    var s = it.status === b.dataset.s ? "needed" : b.dataset.s, prev = it.status;
+    it.status = s; render();
+    rpc("grocery_set_status", { passcode: pass, item_id: id, new_status: s }).then(function (d) {
+      if (!d.ok) { it.status = prev; render(); say(errText(d.error)); }
+    }).catch(function () { it.status = prev; render(); say("Can't reach the list. Check your signal."); });
+  });
+
+  $("lockform").addEventListener("submit", function (e) {
+    e.preventDefault(); var v = $("pc").value.trim(); if (!v) return;
+    pass = v; localStorage.setItem(STORE, v); $("pc").value = ""; load();
+  });
+  $("lockbtn").addEventListener("click", function () { localStorage.removeItem(STORE); pass = ""; items = []; showLock(); });
+
+  $("addform").addEventListener("submit", function (e) {
+    e.preventDefault(); var raw = $("addname").value.trim(); if (!raw) return;
+    var m = raw.match(/^(\d+(?:\.\d+)?)\s*(lbs?|oz|g|kg|cups?|tbsp|tsp|cans?|jars?|bags?|boxes|box|dozen|sticks?|bunch(?:es)?|gal|qt|pt|ml|l)?\s+(.+)$/i);
+    var it = m ? { name: m[3], qty: +m[1], unit: m[2] || null } : { name: raw };
+    it.name = it.name.charAt(0).toUpperCase() + it.name.slice(1);
+    rpc("grocery_add_items", { secret: pass, items: [it] }).then(function (d) {
+      if (!d.ok) return say(errText(d.error));
+      $("addname").value = ""; load();
+    }).catch(function () { say("Can't reach the list. Check your signal."); });
+  });
+
+  $("clearbtn").addEventListener("click", function () {
+    var n = items.filter(function (i) { return i.status !== "needed"; }).length;
+    if (!n) return say("Nothing checked off yet.");
+    rpc("grocery_clear_checked", { passcode: pass }).then(function (d) { if (!d.ok) return say(errText(d.error)); say("Cleared " + d.removed + " checked item" + (d.removed === 1 ? "" : "s") + "."); load(); });
+  });
+  $("freshbtn").addEventListener("click", function () {
+    if (!items.length) return say("The list is already empty.");
+    if (!confirm("Start a fresh list? This removes every item.")) return;
+    rpc("grocery_fresh_list", { passcode: pass }).then(function (d) { if (!d.ok) return say(errText(d.error)); say("Fresh list started."); load(); });
+  });
+
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && pass) load(true); });
+  setInterval(function () { if (!document.hidden && pass && !$("app").hidden) load(true); }, 30000);
+  load();
+})();
+</script>
+</body>
+</html>
